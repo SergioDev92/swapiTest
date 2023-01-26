@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ErrorPageComponent } from './shared/error-page/error-page.component';
-import { MaterialModule } from './material/material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
+
+import { AppRoutingModule } from './app-routing.module';
+
+import { ErrorPageComponent } from './shared/error-page/error-page.component';
 
 @NgModule({
   declarations: [
@@ -13,10 +15,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ErrorPageComponent
   ],
   imports: [
-    // BrowserModule,
+    BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    MaterialModule
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
