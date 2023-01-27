@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { ListadoComponent } from './pages/listado/listado.component';
-import { PeliculaComponent } from './pages/pelicula/pelicula.component';
+import { FilmInfoComponent } from './pages/film-info/film-info.component';
 
 const routes: Routes = [
   {
@@ -16,7 +16,7 @@ const routes: Routes = [
       },
       {
         path: ':id',
-        component: PeliculaComponent 
+        component: FilmInfoComponent 
       },
       {
         path: '**',

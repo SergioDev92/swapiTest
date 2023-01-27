@@ -1,0 +1,42 @@
+<mat-grid-list [cols]="1" *ngIf="!film; else divFilm">
+    <mat-grid-tile>
+        <mat-spinner></mat-spinner>
+    </mat-grid-tile>
+</mat-grid-list>
+
+<ng-template #divFilm>
+    <!-- {{ film | json }} -->
+    <mat-grid-list [cols]="2" [rowHeight]="500">
+        <mat-grid-tile>
+            <div class="boxVertical">
+                <h1>{{film.title}} </h1>
+                <small>Episode: {{film.episode_id}}</small>
+                <small>Director: {{film.director}}</small>
+                <mat-divider></mat-divider>
+                <br>
+            </div>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+            <div class="boxVertical">
+                <h1 class="flex-items-text">Starships: </h1>
+                <mat-divider></mat-divider>
+
+                <mat-list>
+                <mat-list-item class="flex-items-text" *ngFor="let starship of starships">
+                    <small>{{starship}}</small>
+                </mat-list-item>
+                    <!-- <mat-list-item>{{film.producer}}</mat-list-item> -->
+                    <!-- <mat-list-item>{{film.producer}}</mat-list-item> -->
+                </mat-list>
+            </div>
+        </mat-grid-tile>
+
+
+    </mat-grid-list>
+    <!-- <h3>test1</h3>
+    <h3>test2</h3>
+    <h3>test3</h3>
+    <h3>test4</h3> -->
+
+</ng-template>

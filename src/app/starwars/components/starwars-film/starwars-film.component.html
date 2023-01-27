@@ -1,0 +1,19 @@
+<mat-card class="flex-items">
+    <mat-card-header>
+        <mat-card-title>{{swFilm.title}}</mat-card-title>
+        <mat-card-subtitle>Episode: {{swFilm.episode_id}}</mat-card-subtitle>
+        <mat-card-subtitle>Director: {{swFilm.director}}</mat-card-subtitle>
+        <mat-card-subtitle>Releade Date: {{swFilm.release_date}}</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+        <p>{{swFilm.opening_crawl}}</p>
+    </mat-card-content>
+
+    <mat-card-actions>
+        <!-- <button mat-button>LIKE</button> -->
+        <button mat-button color="warn"
+            [routerLink]="['/swmovies', swFilm.episode_id]"
+        >Leer mas...</button>
+    </mat-card-actions>
+</mat-card>

@@ -5,8 +5,9 @@ import { StarwarsRoutingModule } from './starwars-routing.module';
 
 import { HomeComponent } from './pages/home/home.component';
 import { ListadoComponent } from './pages/listado/listado.component';
-import { PeliculaComponent } from './pages/pelicula/pelicula.component';
+import { FilmInfoComponent } from './pages/film-info/film-info.component';
 import { MaterialModule } from '../material/material.module';
+import { StarwarsFilmComponent } from './components/starwars-film/starwars-film.component';
 
 
 
@@ -14,7 +15,8 @@ import { MaterialModule } from '../material/material.module';
   declarations: [
     HomeComponent,
     ListadoComponent,
-    PeliculaComponent
+    FilmInfoComponent,
+    StarwarsFilmComponent
   ],
   imports: [
     CommonModule,
