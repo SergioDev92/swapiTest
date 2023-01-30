@@ -8,12 +8,23 @@ import { SwFilm } from '../../interfaces/swFilm.interface';
   selector: 'app-film-info',
   templateUrl: './film-info.component.html',
   styles: [
+    ` 
+    h1{
+      background-color: #000;
+      text-align: center;
+    }
+    small{
+     text-align: center; 
+    }
+    `
   ]
 })
 export class FilmInfoComponent implements OnInit {
 
   film!: SwFilm;
-  starships: String[] = [];
+  starships: string[] = [];
+  planets: [] = [];
+  characters: [] = [];
 
   constructor(private acrivatedRoute: ActivatedRoute, private starwarsService: StarwarsService) { }
 
@@ -27,10 +38,30 @@ export class FilmInfoComponent implements OnInit {
     ).
     subscribe( (film)  => {
       this.film = film;
-      const { starships } = film;
-      this.starships = starships;
-      console.log(film)
-      console.log(starships)
+      const { starships, planets, characters } = film;
+      this.starwarsService.getFilmData( [...starships ] )
+      .subscribe( (data) => {
+        // console.log(data)
+        const  names  = data.map( (starship: any) => starship.name );
+        this.starships = names;
+      })
+      this.starwarsService.getFilmData( [...planets ] )
+      .subscribe( (data) => {
+        // console.log(data)
+        const namesPlanets = data.map( (planet: any) => planet.name );
+        this.planets = namesPlanets;
+      })
+      this.starwarsService.getFilmData( [...characters ] )
+      .subscribe( (data) => {
+        // console.log(data)
+        const namesCharacters = data.map( (character: any) => character.name );
+        this.characters = namesCharacters;
+      })
+      // this.starships = starships;
+      // this.planets = planets;
+      // this.characters = characters;
+      // console.log(film)
+      // console.log(starships)
     })
   }
 

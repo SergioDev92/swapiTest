@@ -1,4 +1,4 @@
-<mat-grid-list [cols]="1" *ngIf="!film; else divFilm">
+<mat-grid-list [cols]="1" *ngIf="!film && starships && characters; else divFilm">
     <mat-grid-tile>
         <mat-spinner></mat-spinner>
     </mat-grid-tile>
@@ -6,34 +6,61 @@
 
 <ng-template #divFilm>
     <!-- {{ film | json }} -->
-    <mat-grid-list [cols]="2" [rowHeight]="500">
-        <mat-grid-tile>
-            <div class="boxVertical">
-                <h1>{{film.title}} </h1>
-                <small>Episode: {{film.episode_id}}</small>
-                <small>Director: {{film.director}}</small>
-                <mat-divider></mat-divider>
-                <br>
-            </div>
-        </mat-grid-tile>
+    <!-- <mat-grid-list [cols]="2" [rowHeight]="500"> -->
+    <div class="container">
 
-        <mat-grid-tile>
-            <div class="boxVertical">
-                <h1 class="flex-items-text">Starships: </h1>
+        <div class="boxVertical">
+            <h1>{{film.title}} </h1>
+            <small>Episode: {{film.episode_id}}</small>
+            <small>Director: {{film.director}}</small>
+            <mat-divider></mat-divider>
+            <br>
+        </div>
+
+        <div class="grid-container">
+
+            <div class="boxShips">
+                <h2>Starships: </h2>
                 <mat-divider></mat-divider>
 
                 <mat-list>
-                <mat-list-item class="flex-items-text" *ngFor="let starship of starships">
-                    <small>{{starship}}</small>
-                </mat-list-item>
+                    <mat-list-item *ngFor="let starship of starships" style="font-size: 13px; height: 20px">
+                        {{starship}}
+                    </mat-list-item>
                     <!-- <mat-list-item>{{film.producer}}</mat-list-item> -->
                     <!-- <mat-list-item>{{film.producer}}</mat-list-item> -->
                 </mat-list>
             </div>
-        </mat-grid-tile>
+            <div class="boxShips">
+                <h2>Characters: </h2>
+                <mat-divider></mat-divider>
 
+                <mat-list>
+                    <mat-list-item *ngFor="let character of characters" style="font-size: 13px; height: 20px">
+                        {{character}}
+                    </mat-list-item>
+                    <!-- <mat-list-item>{{film.producer}}</mat-list-item> -->
+                    <!-- <mat-list-item>{{film.producer}}</mat-list-item> -->
+                </mat-list>
+            </div>
+            <div class="boxShips">
+                <h2>Planets: </h2>
+                <mat-divider></mat-divider>
 
-    </mat-grid-list>
+                <mat-list>
+                    <mat-list-item *ngFor="let planet of planets" style="font-size: 13px; height: 20px">
+                        {{planet}}
+                    </mat-list-item>
+                    <!-- <mat-list-item>{{film.producer}}</mat-list-item> -->
+                    <!-- <mat-list-item>{{film.producer}}</mat-list-item> -->
+                </mat-list>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- </mat-grid-list> -->
     <!-- <h3>test1</h3>
     <h3>test2</h3>
     <h3>test3</h3>
