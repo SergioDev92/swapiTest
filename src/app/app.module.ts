@@ -9,6 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { ErrorPageComponent } from './shared/error-page/error-page.component';
 import { MaterialModule } from './material/material.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { MaterialModule } from './material/material.module';
     BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
-    MaterialModule
+    MaterialModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

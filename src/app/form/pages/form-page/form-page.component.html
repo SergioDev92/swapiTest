@@ -1,28 +1,29 @@
 <div class="grid-form">
     <h1>Nuevo Registro</h1>
 
-    <div class="box-form">
-        <form autocomplete="off" [formGroup]="form" (ngSubmit)="guardar()">
+    <form autocomplete="off" [formGroup]="form" (ngSubmit)="guardar()">
+            <div class="box-form">
 
-            <mat-form-field>
+            <mat-form-field class="form-items">
                 <mat-label>Nombre</mat-label>
                 <input matInput placeholder="Nombre" formControlName="nombre" type="text">
                 <mat-error *ngIf="campoValido('nombre')">Solo letras (a-Z) y minimo 3 catacterers</mat-error>
             </mat-form-field>
 
-            <mat-form-field>
+            <mat-form-field class="form-items">
                 <mat-label>Apellido</mat-label>
                 <input matInput placeholder="Apellido" formControlName="apellido" type="text">
                 <mat-error *ngIf="campoValido('apellido')">Solo letras (a-Z) y minimo 3 catacterers</mat-error>
 
             </mat-form-field>
 
-            <mat-form-field>
-                <mat-label>Choose a date</mat-label>
-                <input matInput [matDatepicker]="picker">
+            <mat-form-field appearance="fill" class="form-items-date">
+                <mat-label>Fecha de nacimiento</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="fechaN">
                 <mat-hint>MM/DD/YYYY</mat-hint>
-                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
+                <mat-error *ngIf="campoValido('fechaN')">Es necesario ser mayor de edad</mat-error>
             </mat-form-field>
 
             <br>
@@ -31,7 +32,7 @@
                 <mat-icon>add</mat-icon>
                 Agregar
             </button>
+        </div>
         </form>
-    </div>
 
 </div>
